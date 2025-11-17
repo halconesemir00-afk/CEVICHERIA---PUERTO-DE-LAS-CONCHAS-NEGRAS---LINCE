@@ -1,0 +1,351 @@
+ html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL PUERTO DE LAS CONCHAS NEGRAS - Cevichería | Lince</title>
+    <!-- Carga de Tailwind CSS para un diseño moderno y responsive --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome para iconos de contacto y redes sociales --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Definición de la paleta de colores inspirada en el mar y el puerto */
+        :root {
+            --color-primary-dark: #0A3D62; /* Azul Marino Profundo (para detalles) */
+            --color-primary-light: #00BFFF; /* Azul Cielo/Océano Vibrante */
+            --color-accent: #D63031; /* Rojo/Corales (Conchas Negras, Pasión) */
+            --color-highlight: #FDCB6E; /* Amarillo Sol/Arena */
+            --color-sea-foam: #81D4FA; /* Espuma de Mar/Claro */
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Estilos personalizados de Tailwind */
+        .bg-puerto-blue { background-color: var(--color-primary-dark); }
+        .text-puerto-red { color: var(--color-accent); }
+        .bg-puerto-red { background-color: var(--color-accent); }
+        .bg-puerto-highlight { background-color: var(--color-highlight); }
+        .text-puerto-light { color: var(--color-primary-light); } /* Nuevo color para texto claro */
+        
+        /* ------------------------------------- */
+        /* ESTILOS DE FONDO MARINO Y ANIMACIÓN */
+        /* ------------------------------------- */
+
+        /* El fondo marino principal para la sección HERO - AHORA MÁS VIVO */
+        .hero-sea-background {
+            background: linear-gradient(180deg, #00BFFF 0%, #20B2AA 50%, #0A3D62 100%); /* Azul cielo a Turquesa a Azul oscuro */
+            position: relative;
+            overflow: hidden; /* Oculta los elementos que se salen del fondo */
+        }
+        
+        /* Aseguramos que el texto del Hero sea legible sobre el nuevo fondo */
+        .hero-sea-background h2, 
+        .hero-sea-background h3,
+        .hero-sea-background p {
+            color: white; /* Aseguramos texto blanco */
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* Sombra más fuerte para contraste */
+        }
+
+        /* Animación de Burbujas (Bubble Effect) */
+        .bubble {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.4); /* Burbujas más visibles */
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: rise 10s infinite ease-in;
+            box-shadow: 0 0 5px rgba(255,255,255,0.7); /* Brillo sutil */
+        }
+
+        /* Animación de Pez (Simulación de Movimiento Marino con Emoji) */
+        .fish-icon {
+            position: absolute;
+            font-size: 35px; /* Peces un poco más grandes */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra para profundidad */
+            pointer-events: none;
+            opacity: 0.9;
+            animation: swim 15s infinite linear;
+        }
+
+        /* Definición de la animación de subida de burbujas */
+        @keyframes rise {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        /* Definición de la animación de nado para peces (movimiento horizontal) */
+        @keyframes swim {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100vw); }
+        }
+
+        /* Aseguramos que el logo se vea bien sobre el fondo */
+        .logo-container {
+            position: relative;
+            z-index: 10; /* Asegura que esté por encima de las burbujas y peces */
+        }
+
+        /* Efecto de sombra para el texto del Hero (ajustado para fondo más claro) */
+        .text-shadow-strong {
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+        }
+
+        /* Transiciones suaves para las tarjetas de platos */
+        .dish-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 1. Barra de Navegación (Header) --><header class="sticky top-0 z-50 bg-puerto-blue shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+             <!-- Logo en la Navegación --><a href="#inicio" class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.20.jpeg-02cf7f5c-ccfe-4df2-aa65-9de70b99a9d5"
+                     alt="Logo El Puerto de las Conchas Negras" 
+                     class="h-10 w-auto rounded-full shadow-lg" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A3D62/FDCB6E?text=LP';" />
+                <span class="text-2xl font-black text-puerto-highlight hidden sm:block">EL PUERTO</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#platos" class="text-white hover:text-puerto-highlight transition duration-150">Nuestros Platos</a>
+                <a href="#menu-dia" class="text-white hover:text-puerto-highlight transition duration-150">Especialidad</a>
+                <a href="#local" class="text-white hover:text-puerto-highlight transition duration-150">Ubicación</a>
+                <a href="tel:+51953300260" class="text-white bg-puerto-red px-4 py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-150">
+                    <i class="fas fa-phone mr-1"></i> Llama Ahora
+                </a>
+            </nav>
+            <!-- Botón de Llamada para Móvil --><a href="tel:+51953300260" class="md:hidden text-white bg-puerto-red p-2 rounded-full shadow-lg">
+                <i class="fas fa-phone text-xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. Sección Principal (Hero) - Con Fondo Marino y Logo --><section id="inicio" class="hero-sea-background text-white py-20 md:py-32 relative">
+        <!-- Contenedor para Burbujas y Animales Marinos (Creados por JS) --><div id="sea-elements" class="absolute inset-0 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 logo-container">
+            
+            <!-- Logo Centrado y Grande --><img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.20.jpeg-02cf7f5c-ccfe-4df2-aa65-9de70b99a9d5"
+                     alt="Logo El Puerto de las Conchas Negras" 
+                     class="h-32 w-auto mx-auto mb-4 rounded-full border-4 border-puerto-highlight shadow-xl" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/128x128/0A3D62/FDCB6E?text=LOGO';" />
+
+            <p class="text-xl font-light mb-3 text-puerto-highlight text-shadow-strong">Bienvenidos al auténico</p>
+            <h2 class="text-5xl md:text-7xl font-black mb-4 leading-tight text-shadow-strong">
+                EL PUERTO DE LAS CONCHAS NEGRAS
+            </h2>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-10 text-white text-shadow-strong">
+                El Sabor Inigualable de Tumbes, Frescura Garantizada.
+            </h3>
+            <a href="#platos" class="inline-block bg-puerto-highlight text-puerto-blue font-bold text-xl px-10 py-4 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300">
+                Ver Galería de Platos
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. Galería de Platos Reales (Nuestros Platos) - ¡Aquí están tus imágenes! --><section id="platos" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center mb-12 text-puerto-blue border-b-4 border-puerto-highlight pb-2">
+                🐟 GALERÍA DE PLATOS 100% REALES 🦐
+            </h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- IMAGEN 1: Causa de Camarón --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.23.jpeg-74831810-95ff-4913-83ed-68ef6ec28ac9" 
+                         alt="Causa de Camarón con Palta" 
+                         class="object-cover w-full h-full">
+                </div>
+                <!-- IMAGEN 2: Arroz con Mariscos y Conchas --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.23-1-.jpeg-4cb2f768-1d92-49ae-bada-9b717d23b6b4" 
+                         alt="Arroz con Mariscos y Conchas" 
+                         class="object-cover w-full h-full">
+                </div>
+                <!-- IMAGEN 3: Jalea Mixta o Frituras --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.21.jpeg-1a633ab6-7ca5-49a5-a954-de253353744a" 
+                         alt="Jalea Mixta Crujiente" 
+                         class="object-cover w-full h-full">
+                </div>
+                <!-- IMAGEN 4: Ronda Marina (Ceviche, Arroz, Causa) --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.22.jpeg-4b5960c1-22d0-472c-885b-a627fabb14e3" 
+                         alt="Plato Degustación Marino" 
+                         class="object-cover w-full h-full">
+                </div>
+                <!-- IMAGEN 5: Ceviche de Conchas Negras --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
+                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.22-2-.jpeg-18630b89-3d31-4c93-b27b-ea9eae82d5e5" 
+                         alt="Auténticas Conchas Negras" 
+                         class="object-cover w-full h-full">
+                </div>
+            </div>
+            <p class="text-center mt-8 text-gray-500 text-sm italic">
+                ¡La frescura del mar del norte directamente en tu mesa de Lince!
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. Especialidad (Leche de Tigre) --><section id="menu-dia" class="py-16 md:py-24 bg-puerto-highlight border-t-8 border-puerto-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl md:text-5xl font-extrabold text-center mb-4 text-puerto-blue">
+                🏆 Nuestra Especialidad que te Revive 🏆
+            </h3>
+            <p class="text-center text-xl text-gray-700 mb-12">No te puedes ir sin probar el sabor auténtico de Tumbes:</p>
+
+            <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border-4 border-puerto-red flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/3 mb-4 lg:mb-0 lg:mr-6">
+                    <!-- IMAGEN 6: Leche de Tigre --><img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.21-1-.jpeg-7173b04e-93cf-4d1a-97ba-62e048f2300b" 
+                         alt="Leche de Tigre El Puerto" 
+                         class="rounded-xl object-cover w-full h-48 lg:h-full shadow-lg">
+                </div>
+                <div class="lg:w-2/3">
+                    <h4 class="text-3xl font-black mb-3 text-puerto-blue">La Potente "Leche de Tigre Negra"</h4>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Nuestro plato emblema: jugo concentrado del ceviche de conchas negras, puro sabor y energía. Acompañado de chifles y mariscos fritos. ¡Perfecto para revivir!
+                    </p>
+                    <div class="text-center lg:text-left">
+                        <span class="text-4xl font-black text-puerto-red block mb-4">¡Pregunta por el precio del día!</span>
+                        <a href="tel:+51953300260" class="inline-block bg-puerto-blue text-white font-bold text-lg px-8 py-3 rounded-lg hover:bg-blue-800 transition duration-300">
+                            <i class="fas fa-utensils mr-2"></i> Solicitar una Mesa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Local, Ubicación y Contacto --><section id="local" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center mb-16 text-puerto-blue">¡Visítanos en Lince!</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+                
+                <!-- Columna 1: Contacto y Redes Sociales --><div id="contacto" class="p-8 rounded-3xl shadow-2xl bg-puerto-blue text-white flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-3xl font-bold mb-6 text-puerto-highlight">Contacto Directo</h4>
+                        
+                        <!-- Teléfono --><div class="flex items-center mb-6">
+                            <i class="fas fa-phone-alt text-4xl text-puerto-red mr-4"></i>
+                            <div>
+                                <p class="text-sm opacity-80">Llámanos a nuestro celular:</p>
+                                <a href="tel:+51953300260" class="text-2xl font-black hover:text-puerto-highlight transition duration-150">
+                                    953 300 260
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Dirección --><div class="flex items-start mb-8">
+                            <i class="fas fa-map-marked-alt text-4xl text-puerto-red mr-4 mt-1"></i>
+                            <div>
+                                <p class="text-sm opacity-80">Encuéntranos en:</p>
+                                <p class="text-xl font-bold">JR. Mariscal Miller N° 1905, Lince</p>
+                            </div>
+                        </div>
+
+                        <!-- Horario --><div class="flex items-start mb-8">
+                            <i class="far fa-clock text-4xl text-puerto-red mr-4 mt-1"></i>
+                            <div>
+                                <p class="text-sm opacity-80">Horario Sugerido de Atención:</p>
+                                <p class="text-xl font-bold">Lunes a Domingo | 11:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales --><div class="mt-8 pt-6 border-t border-white/20">
+                        <p class="text-lg font-semibold mb-3 text-puerto-highlight">Síguenos y Etiquétanos:</p>
+                        <div class="flex space-x-6 justify-center lg:justify-start">
+                            <!-- Instagram --><a href="https://www.instagram.com/puerto_de_las_conchas_negras" target="_blank" class="text-5xl hover:text-pink-400 transition duration-150">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <!-- TikTok --><a href="https://www.tiktok.com/@puertodelasconchasnegras" target="_blank" class="text-5xl hover:text-gray-200 transition duration-150">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <!-- WhatsApp (Usando el número de ejemplo) --><a href="https://wa.me/51953300260" target="_blank" class="text-5xl hover:text-green-400 transition duration-150">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Mapa GPS Clickeable --><div class="p-0 rounded-3xl shadow-2xl overflow-hidden bg-gray-200">
+                    <h4 class="text-2xl font-bold text-center py-4 bg-puerto-red text-white">
+                        <i class="fas fa-location-arrow mr-2"></i> Haz Clic para Navegar
+                    </h4>
+                    <!-- Mapa GPS Clickeable --><a href="https://maps.google.com/?q=JR.%20Mariscal%20Miller%20N%C2%B0%201905,%20Lince" target="_blank" class="block w-full h-full min-h-80">
+                        <!-- Placeholder de mapa: Usamos una imagen que simule un mapa para el atractivo visual --><img src="https://placehold.co/800x600/1e40af/ffffff?text=MAPA%20de%20Ubicación%0AJR.%20Mariscal%20Miller%201905" 
+                             alt="Ubicación GPS Clickeable" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </a>
+                    <p class="text-center text-xs p-2 text-gray-600">
+                         (Nota: El enlace de navegación usa la dirección de texto. Revisa que Google Maps la identifique correctamente.)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Pie de Página (Footer) --><footer class="bg-puerto-blue text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">&copy; 2025 EL PUERTO DE LAS CONCHAS NEGRAS. Hecho con Sazón.</p>
+        </div>
+    </footer>
+    
+    <!-- Script para generar el fondo marino animado (Burbujas y Peces) --><script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seaElementsContainer = document.getElementById('sea-elements');
+            const numElements = 20; // Número total de burbujas y peces
+
+            // Función para generar una posición aleatoria
+            function getRandomPosition(isFish = false) {
+                // Para peces (movimiento horizontal), ajustamos el inicio
+                const x = isFish ? window.innerWidth : Math.random() * window.innerWidth;
+                const y = Math.random() * (window.innerHeight * 0.8) + window.innerHeight * 0.2; // Evita el tope superior
+                return { x, y };
+            }
+
+            // Array de emojis de animales marinos
+            const fishEmojis = ['🐠', '🐡', '🐙', '🦐', '🦀', '🦑', '🐋'];
+
+            for (let i = 0; i < numElements; i++) {
+                if (Math.random() > 0.6) { // 40% de probabilidad de ser un pez
+                    const fish = document.createElement('div');
+                    fish.classList.add('fish-icon');
+                    fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+                    
+                    const { x, y } = getRandomPosition(true);
+                    
+                    // Coloca el pez fuera del lado derecho y a una altura aleatoria
+                    fish.style.left = `${x}px`;
+                    fish.style.top = `${y}px`;
+                    
+                    // Velocidad y retraso de animación aleatorios
+                    fish.style.animationDuration = `${10 + Math.random() * 10}s`;
+                    fish.style.animationDelay = `-${Math.random() * 15}s`; // Empieza en la mitad del ciclo
+                    
+                    seaElementsContainer.appendChild(fish);
+                } else { // 60% de probabilidad de ser una burbuja
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    
+                    const { x } = getRandomPosition(false);
+                    
+                    // Las burbujas empiezan abajo (en el CSS se maneja el translateY)
+                    bubble.style.left = `${x}px`;
+                    bubble.style.width = `${5 + Math.random() * 15}px`;
+                    bubble.style.height = bubble.style.width;
+
+                    // Velocidad y retraso de animación aleatorios
+                    bubble.style.animationDuration = `${8 + Math.random() * 8}s`;
+                    bubble.style.animationDelay = `-${Math.random() * 10}s`;
+                    
+                    seaElementsContainer.appendChild(bubble);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
