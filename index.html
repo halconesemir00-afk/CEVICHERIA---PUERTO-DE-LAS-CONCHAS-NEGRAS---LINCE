@@ -1,11 +1,15 @@
- html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EL PUERTO DE LAS CONCHAS NEGRAS - Cevichería | Lince</title>
-    <!-- Carga de Tailwind CSS para un diseño moderno y responsive --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de Font Awesome para iconos de contacto y redes sociales --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Carga de Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carga de Font Awesome para íconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* Definición de la paleta de colores inspirada en el mar y el puerto */
@@ -30,64 +34,58 @@
         /* ESTILOS DE FONDO MARINO Y ANIMACIÓN */
         /* ------------------------------------- */
 
-        /* El fondo marino principal para la sección HERO - AHORA MÁS VIVO */
         .hero-sea-background {
             background: linear-gradient(180deg, #00BFFF 0%, #20B2AA 50%, #0A3D62 100%); /* Azul cielo a Turquesa a Azul oscuro */
             position: relative;
-            overflow: hidden; /* Oculta los elementos que se salen del fondo */
+            overflow: hidden; 
         }
         
-        /* Aseguramos que el texto del Hero sea legible sobre el nuevo fondo */
         .hero-sea-background h2, 
         .hero-sea-background h3,
         .hero-sea-background p {
-            color: white; /* Aseguramos texto blanco */
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* Sombra más fuerte para contraste */
+            color: white; 
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6); 
         }
 
-        /* Animación de Burbujas (Bubble Effect) */
+        /* Animación de Burbujas */
         .bubble {
             position: absolute;
             width: 15px;
             height: 15px;
-            background-color: rgba(255, 255, 255, 0.4); /* Burbujas más visibles */
+            background-color: rgba(255, 255, 255, 0.4); 
             border-radius: 50%;
             pointer-events: none;
             opacity: 0;
             animation: rise 10s infinite ease-in;
-            box-shadow: 0 0 5px rgba(255,255,255,0.7); /* Brillo sutil */
+            box-shadow: 0 0 5px rgba(255,255,255,0.7); 
         }
 
-        /* Animación de Pez (Simulación de Movimiento Marino con Emoji) */
+        /* Animación de Pez */
         .fish-icon {
             position: absolute;
-            font-size: 35px; /* Peces un poco más grandes */
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra para profundidad */
+            font-size: 35px; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); 
             pointer-events: none;
             opacity: 0.9;
             animation: swim 15s infinite linear;
         }
 
-        /* Definición de la animación de subida de burbujas */
         @keyframes rise {
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
             50% { opacity: 0.8; }
             100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
         }
 
-        /* Definición de la animación de nado para peces (movimiento horizontal) */
         @keyframes swim {
             0% { transform: translateX(100vw); }
             100% { transform: translateX(-100vw); }
         }
 
-        /* Aseguramos que el logo se vea bien sobre el fondo */
         .logo-container {
             position: relative;
-            z-index: 10; /* Asegura que esté por encima de las burbujas y peces */
+            z-index: 10; 
         }
 
-        /* Efecto de sombra para el texto del Hero (ajustado para fondo más claro) */
         .text-shadow-strong {
             text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
         }
@@ -104,13 +102,18 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- 1. Barra de Navegación (Header) --><header class="sticky top-0 z-50 bg-puerto-blue shadow-xl">
+    <!-- BARRA DE NAVEGACIÓN (HEADER) -->
+<header class="sticky top-0 z-50 bg-puerto-blue shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-             <!-- Logo en la Navegación --><a href="#inicio" class="flex items-center space-x-2">
-                <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.20.jpeg-02cf7f5c-ccfe-4df2-aa65-9de70b99a9d5"
+             
+            <!-- Logo y Nombre -->
+<a href="#inicio" class="flex items-center space-x-2">
+                <!-- LOGO - Imagen 9 -->
+                <img src="WhatsApp Image 2025-11-17 at 17.39.20.jpeg-6cd28f97-b9ff-48e0-bd12-12350b9b5490"
                      alt="Logo El Puerto de las Conchas Negras" 
                      class="h-10 w-auto rounded-full shadow-lg" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A3D62/FDCB6E?text=LP';" />
+                     onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A3D62/FDCB6E?text=LP';"
+                     crossorigin="anonymous" />
                 <span class="text-2xl font-black text-puerto-highlight hidden sm:block">EL PUERTO</span>
             </a>
             <nav class="hidden md:flex space-x-6 text-sm font-medium">
@@ -121,21 +124,28 @@
                     <i class="fas fa-phone mr-1"></i> Llama Ahora
                 </a>
             </nav>
-            <!-- Botón de Llamada para Móvil --><a href="tel:+51953300260" class="md:hidden text-white bg-puerto-red p-2 rounded-full shadow-lg">
+            
+            <!-- Botón de llamar en móvil -->
+<a href="tel:+51953300260" class="md:hidden text-white bg-puerto-red p-2 rounded-full shadow-lg">
                 <i class="fas fa-phone text-xl"></i>
             </a>
         </div>
     </header>
 
-    <!-- 2. Sección Principal (Hero) - Con Fondo Marino y Logo --><section id="inicio" class="hero-sea-background text-white py-20 md:py-32 relative">
-        <!-- Contenedor para Burbujas y Animales Marinos (Creados por JS) --><div id="sea-elements" class="absolute inset-0 z-0"></div>
+    <!-- SECCIÓN HERO (PRINCIPAL) -->
+<section id="inicio" class="hero-sea-background text-white py-20 md:py-32 relative">
+        
+        <!-- Elementos animados de fondo -->
+<div id="sea-elements" class="absolute inset-0 z-0"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 logo-container">
             
-            <!-- Logo Centrado y Grande --><img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.20.jpeg-02cf7f5c-ccfe-4df2-aa65-9de70b99a9d5"
+            <!-- LOGO CENTRAL - Imagen 9 -->
+<img src="WhatsApp Image 2025-11-17 at 17.39.20.jpeg-6cd28f97-b9ff-48e0-bd12-12350b9b5490"
                      alt="Logo El Puerto de las Conchas Negras" 
                      class="h-32 w-auto mx-auto mb-4 rounded-full border-4 border-puerto-highlight shadow-xl" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/128x128/0A3D62/FDCB6E?text=LOGO';" />
+                     onerror="this.onerror=null; this.src='https://placehold.co/128x128/0A3D62/FDCB6E?text=LOGO';" 
+                     crossorigin="anonymous" />
 
             <p class="text-xl font-light mb-3 text-puerto-highlight text-shadow-strong">Bienvenidos al auténico</p>
             <h2 class="text-5xl md:text-7xl font-black mb-4 leading-tight text-shadow-strong">
@@ -150,37 +160,72 @@
         </div>
     </section>
 
-    <!-- 3. Galería de Platos Reales (Nuestros Platos) - ¡Aquí están tus imágenes! --><section id="platos" class="py-16 md:py-24 bg-white">
+    <!-- SECCIÓN DE GALERÍA DE PLATOS -->
+<section id="platos" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center mb-12 text-puerto-blue border-b-4 border-puerto-highlight pb-2">
                 🐟 GALERÍA DE PLATOS 100% REALES 🦐
             </h3>
             
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <!-- IMAGEN 1: Causa de Camarón --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.23.jpeg-74831810-95ff-4913-83ed-68ef6ec28ac9" 
+                
+                <!-- Ronda Marina - Imagen 6 -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (3).jpeg-31294928-d7a6-493e-93ab-3c832efc7f45" 
+                         alt="Ronda Marina con Ceviche, Causa y Arroz" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
+                </div>
+                
+                <!-- Ceviche de Conchas Negras - Imagen 3 -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.21.jpeg-b0b2f071-36cd-4c00-ae43-b30f76a67799" 
+                         alt="Auténtico Ceviche de Conchas Negras" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
+                </div>
+                
+                <!-- Arroz con Mariscos - Imagen 1 -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg-33fdc0f8-e662-4dfe-9c06-8a4234e9c218" 
+                         alt="Arroz con Mariscos Decorado" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
+                </div>
+                
+                <!-- Causa de Camarón - Imagen 2 -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.23.jpeg-0790c166-0666-4115-8cfe-6c01ddde3e51" 
                          alt="Causa de Camarón con Palta" 
-                         class="object-cover w-full h-full">
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
                 </div>
-                <!-- IMAGEN 2: Arroz con Mariscos y Conchas --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.23-1-.jpeg-4cb2f768-1d92-49ae-bada-9b717d23b6b4" 
-                         alt="Arroz con Mariscos y Conchas" 
-                         class="object-cover w-full h-full">
+                
+                <!-- Jalea Mixta - Imagen 8 (Col span 2 en móvil, 1 en desktop) -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg-cd6ef2af-f6b0-46cd-bea0-9cc0c5d6317e" 
+                         alt="Crujiente Jalea Mixta" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
                 </div>
-                <!-- IMAGEN 3: Jalea Mixta o Frituras --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.21.jpeg-1a633ab6-7ca5-49a5-a954-de253353744a" 
-                         alt="Jalea Mixta Crujiente" 
-                         class="object-cover w-full h-full">
+                
+                <!-- Causa de Camarón - Imagen 4 (Col span 2 en móvil, 1 en desktop) -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22.jpeg-79694137-2f64-47a2-b56a-d5e868491419" 
+                         alt="Causa de Camarón en bandeja" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
                 </div>
-                <!-- IMAGEN 4: Ronda Marina (Ceviche, Arroz, Causa) --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.22.jpeg-4b5960c1-22d0-472c-885b-a627fabb14e3" 
-                         alt="Plato Degustación Marino" 
-                         class="object-cover w-full h-full">
-                </div>
-                <!-- IMAGEN 5: Ceviche de Conchas Negras --><div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
-                    <img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.22-2-.jpeg-18630b89-3d31-4c93-b27b-ea9eae82d5e5" 
-                         alt="Auténticas Conchas Negras" 
-                         class="object-cover w-full h-full">
+                
+                <!-- Causa Especial Cumpleaños - Imagen 5 (Col span 2) -->
+<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card md:col-span-2 relative">
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (1).jpeg-f4cb0b86-2c15-4c00-8f6a-179bf3aa642a" 
+                         alt="Causa especial de cumpleaños" 
+                         class="object-cover w-full h-full"
+                         crossorigin="anonymous">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+                        <p class="text-white text-xl font-bold text-center">¡Celebra con nosotros! <br> Pedidos especiales para tus eventos.</p>
+                    </div>
                 </div>
             </div>
             <p class="text-center mt-8 text-gray-500 text-sm italic">
@@ -189,7 +234,8 @@
         </div>
     </section>
 
-    <!-- 4. Especialidad (Leche de Tigre) --><section id="menu-dia" class="py-16 md:py-24 bg-puerto-highlight border-t-8 border-puerto-red">
+    <!-- SECCIÓN DE ESPECIALIDAD (LECHE DE TIGRE) -->
+<section id="menu-dia" class="py-16 md:py-24 bg-puerto-highlight border-t-8 border-puerto-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl md:text-5xl font-extrabold text-center mb-4 text-puerto-blue">
                 🏆 Nuestra Especialidad que te Revive 🏆
@@ -198,9 +244,11 @@
 
             <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border-4 border-puerto-red flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/3 mb-4 lg:mb-0 lg:mr-6">
-                    <!-- IMAGEN 6: Leche de Tigre --><img src="https://storage.googleapis.com/assist-assets/whatsapp-image-2025-11-17-at-17.39.21-1-.jpeg-7173b04e-93cf-4d1a-97ba-62e048f2300b" 
+                    <!-- Leche de Tigre Negra - Imagen 7 -->
+<img src="WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg-5a918ff5-2e39-4747-9c74-670062b5bdca" 
                          alt="Leche de Tigre El Puerto" 
-                         class="rounded-xl object-cover w-full h-48 lg:h-full shadow-lg">
+                         class="rounded-xl object-cover w-full h-48 lg:h-full shadow-lg"
+                         crossorigin="anonymous">
                 </div>
                 <div class="lg:w-2/3">
                     <h4 class="text-3xl font-black mb-3 text-puerto-blue">La Potente "Leche de Tigre Negra"</h4>
@@ -218,17 +266,20 @@
         </div>
     </section>
 
-    <!-- 5. Local, Ubicación y Contacto --><section id="local" class="py-16 md:py-24 bg-gray-50">
+    <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
+<section id="local" class="py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center mb-16 text-puerto-blue">¡Visítanos en Lince!</h3>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
                 
-                <!-- Columna 1: Contacto y Redes Sociales --><div id="contacto" class="p-8 rounded-3xl shadow-2xl bg-puerto-blue text-white flex flex-col justify-between">
+                <!-- Tarjeta de Contacto y Redes -->
+<div id="contacto" class="p-8 rounded-3xl shadow-2xl bg-puerto-blue text-white flex flex-col justify-between">
                     <div>
                         <h4 class="text-3xl font-bold mb-6 text-puerto-highlight">Contacto Directo</h4>
                         
-                        <!-- Teléfono --><div class="flex items-center mb-6">
+                        <!-- Teléfono -->
+<div class="flex items-center mb-6">
                             <i class="fas fa-phone-alt text-4xl text-puerto-red mr-4"></i>
                             <div>
                                 <p class="text-sm opacity-80">Llámanos a nuestro celular:</p>
@@ -238,7 +289,8 @@
                             </div>
                         </div>
                         
-                        <!-- Dirección --><div class="flex items-start mb-8">
+                        <!-- Dirección -->
+<div class="flex items-start mb-8">
                             <i class="fas fa-map-marked-alt text-4xl text-puerto-red mr-4 mt-1"></i>
                             <div>
                                 <p class="text-sm opacity-80">Encuéntranos en:</p>
@@ -246,7 +298,8 @@
                             </div>
                         </div>
 
-                        <!-- Horario --><div class="flex items-start mb-8">
+                        <!-- Horario -->
+<div class="flex items-start mb-8">
                             <i class="far fa-clock text-4xl text-puerto-red mr-4 mt-1"></i>
                             <div>
                                 <p class="text-sm opacity-80">Horario Sugerido de Atención:</p>
@@ -255,30 +308,42 @@
                         </div>
                     </div>
 
-                    <!-- Redes Sociales --><div class="mt-8 pt-6 border-t border-white/20">
+                    <!-- Redes Sociales -->
+<div class="mt-8 pt-6 border-t border-white/20">
                         <p class="text-lg font-semibold mb-3 text-puerto-highlight">Síguenos y Etiquétanos:</p>
                         <div class="flex space-x-6 justify-center lg:justify-start">
-                            <!-- Instagram --><a href="https://www.instagram.com/puerto_de_las_conchas_negras" target="_blank" class="text-5xl hover:text-pink-400 transition duration-150">
+                            
+                            <!-- Instagram -->
+<a href="https://www.instagram.com/puerto_de_las_conchas_negras" target="_blank" class="text-5xl hover:text-pink-400 transition duration-150">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <!-- TikTok --><a href="https://www.tiktok.com/@puertodelasconchasnegras" target="_blank" class="text-5xl hover:text-gray-200 transition duration-150">
+                            
+                            <!-- TikTok -->
+<a href="https://www.tiktok.com/@puertodelasconchasnegras" target="_blank" class="text-5xl hover:text-gray-200 transition duration-150">
                                 <i class="fab fa-tiktok"></i>
                             </a>
-                            <!-- WhatsApp (Usando el número de ejemplo) --><a href="https://wa.me/51953300260" target="_blank" class="text-5xl hover:text-green-400 transition duration-150">
+                            
+                            <!-- WhatsApp -->
+<a href="https://wa.me/51953300260" target="_blank" class="text-5xl hover:text-green-400 transition duration-150">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Columna 2: Mapa GPS Clickeable --><div class="p-0 rounded-3xl shadow-2xl overflow-hidden bg-gray-200">
+                <!-- Mapa Clickeable -->
+<div class="p-0 rounded-3xl shadow-2xl overflow-hidden bg-gray-200">
                     <h4 class="text-2xl font-bold text-center py-4 bg-puerto-red text-white">
                         <i class="fas fa-location-arrow mr-2"></i> Haz Clic para Navegar
                     </h4>
-                    <!-- Mapa GPS Clickeable --><a href="https://maps.google.com/?q=JR.%20Mariscal%20Miller%20N%C2%B0%201905,%20Lince" target="_blank" class="block w-full h-full min-h-80">
-                        <!-- Placeholder de mapa: Usamos una imagen que simule un mapa para el atractivo visual --><img src="https://placehold.co/800x600/1e40af/ffffff?text=MAPA%20de%20Ubicación%0AJR.%20Mariscal%20Miller%201905" 
+                    
+                    <!-- Enlace al mapa de Google -->
+<a href="https://maps.google.com/?q=JR.%20Mariscal%20Miller%20N%C2%B0%201905,%20Lince" target="_blank" class="block w-full h-full min-h-80">
+                        <!-- Placeholder del mapa -->
+                        <img src="https://placehold.co/800x600/1e40bf/ffffff?text=MAPA%20de%20Ubicación%0AJR.%20Mariscal%20Miller%201905" 
                              alt="Ubicación GPS Clickeable" 
-                             class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                             class="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+                             crossorigin="anonymous">
                     </a>
                     <p class="text-center text-xs p-2 text-gray-600">
                          (Nota: El enlace de navegación usa la dirección de texto. Revisa que Google Maps la identifique correctamente.)
@@ -288,22 +353,23 @@
         </div>
     </section>
 
-    <!-- 6. Pie de Página (Footer) --><footer class="bg-puerto-blue text-white py-6">
+    <!-- FOOTER (Pie de página) -->
+<footer class="bg-puerto-blue text-white py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">&copy; 2025 EL PUERTO DE LAS CONCHAS NEGRAS. Hecho con Sazón.</p>
         </div>
     </footer>
     
-    <!-- Script para generar el fondo marino animado (Burbujas y Peces) --><script>
+    <!-- JavaScript para la animación de fondo -->
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             const seaElementsContainer = document.getElementById('sea-elements');
-            const numElements = 20; // Número total de burbujas y peces
+            const numElements = 20; 
 
             // Función para generar una posición aleatoria
             function getRandomPosition(isFish = false) {
-                // Para peces (movimiento horizontal), ajustamos el inicio
                 const x = isFish ? window.innerWidth : Math.random() * window.innerWidth;
-                const y = Math.random() * (window.innerHeight * 0.8) + window.innerHeight * 0.2; // Evita el tope superior
+                const y = Math.random() * (window.innerHeight * 0.8) + window.innerHeight * 0.2; 
                 return { x, y };
             }
 
@@ -318,13 +384,11 @@
                     
                     const { x, y } = getRandomPosition(true);
                     
-                    // Coloca el pez fuera del lado derecho y a una altura aleatoria
                     fish.style.left = `${x}px`;
                     fish.style.top = `${y}px`;
                     
-                    // Velocidad y retraso de animación aleatorios
                     fish.style.animationDuration = `${10 + Math.random() * 10}s`;
-                    fish.style.animationDelay = `-${Math.random() * 15}s`; // Empieza en la mitad del ciclo
+                    fish.style.animationDelay = `-${Math.random() * 15}s`; 
                     
                     seaElementsContainer.appendChild(fish);
                 } else { // 60% de probabilidad de ser una burbuja
@@ -333,12 +397,10 @@
                     
                     const { x } = getRandomPosition(false);
                     
-                    // Las burbujas empiezan abajo (en el CSS se maneja el translateY)
                     bubble.style.left = `${x}px`;
                     bubble.style.width = `${5 + Math.random() * 15}px`;
                     bubble.style.height = bubble.style.width;
 
-                    // Velocidad y retraso de animación aleatorios
                     bubble.style.animationDuration = `${8 + Math.random() * 8}s`;
                     bubble.style.animationDelay = `-${Math.random() * 10}s`;
                     
