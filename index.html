@@ -3,411 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL PUERTO DE LAS CONCHAS NEGRAS - Cevichería | Lince</title>
-    
+    <title>EL PUERTO DE LAS CONCHAS NEGRAS - Cevicheria | Lince</title>
     <!-- Carga de Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Carga de Font Awesome para íconos -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <!-- Carga de Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
     <style>
-        /* Definición de la paleta de colores inspirada en el mar y el puerto */
+        /* Definición de la paleta de colores Inspirada en el mar y el puerto */
         :root {
-            --color-primary-dark: #0A3D62; /* Azul Marino Profundo (para detalles) */
-            --color-primary-light: #00BFFF; /* Azul Cielo/Océano Vibrante */
-            --color-accent: #D63031; /* Rojo/Corales (Conchas Negras, Pasión) */
-            --color-highlight: #FDCB6E; /* Amarillo Sol/Arena */
-            --color-sea-foam: #81D4FA; /* Espuma de Mar/Claro */
-            scroll-behavior: smooth;
+            --color-primary-dark: #0A3D62; /* Azul Marino Profundo */
+            --color-primary-light: #0B8F9D; /* Azul Cielo/Océano Vibrante */
+            --color-accent-red: #D63031;   /* Rojo/Corales (Conchas Negras, Pasión) */
+            --color-neutral-sand: #F7F1E3; /* Arena/Crema Claro */
+            --color-neutral-dark: #333333; /* Texto Oscuro */
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        
+        body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--color-neutral-sand);
+            color: var(--color-neutral-dark);
         }
 
-        /* Estilos personalizados de Tailwind */
-        .bg-puerto-blue { background-color: var(--color-primary-dark); }
-        .text-puerto-red { color: var(--color-accent); }
-        .bg-puerto-red { background-color: var(--color-accent); }
-        .bg-puerto-highlight { background-color: var(--color-highlight); }
-        .text-puerto-light { color: var(--color-primary-light); } /* Nuevo color para texto claro */
-        
-        /* ------------------------------------- */
-        /* ESTILOS DE FONDO MARINO Y ANIMACIÓN */
-        /* ------------------------------------- */
-
-        .hero-sea-background {
-            background: linear-gradient(180deg, #00BFFF 0%, #20B2AA 50%, #0A3D62 100%); /* Azul cielo a Turquesa a Azul oscuro */
-            position: relative;
-            overflow: hidden; 
+        /* Estilo para el botón principal de llamada a la acción */
+        .btn-cta {
+            background-color: var(--color-accent-red);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-subtle);
         }
-        
-        .hero-sea-background h2, 
-        .hero-sea-background h3,
-        .hero-sea-background p {
-            color: white; 
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.6); 
+        .btn-cta:hover {
+            background-color: #C0392B; /* Tono más oscuro de rojo al pasar el mouse */
+            transform: translateY(-1px);
         }
 
-        /* Animación de Burbujas */
-        .bubble {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: rgba(255, 255, 255, 0.4); 
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            animation: rise 10s infinite ease-in;
-            box-shadow: 0 0 5px rgba(255,255,255,0.7); 
+        /* Estilo del encabezado/navegación */
+        .header {
+            background-color: var(--color-primary-dark);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .header a {
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .header a:hover {
+            background-color: var(--color-primary-light);
         }
 
-        /* Animación de Pez */
-        .fish-icon {
-            position: absolute;
-            font-size: 35px; 
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); 
-            pointer-events: none;
-            opacity: 0.9;
-            animation: swim 15s infinite linear;
-        }
-
-        @keyframes rise {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
-        }
-
-        @keyframes swim {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100vw); }
-        }
-
-        .logo-container {
-            position: relative;
-            z-index: 10; 
-        }
-
-        .text-shadow-strong {
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-        }
-
-        /* Transiciones suaves para las tarjetas de platos */
+        /* Estilo para las tarjetas de platos en la galería */
         .dish-card {
-            transition: all 0.3s ease-in-out;
+            background-color: white;
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Para que la imagen no se salga del borde redondeado */
         }
         .dish-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .dish-image {
+            width: 100%;
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+            transition: transform 0.5s ease;
+        }
+        .dish-card:hover .dish-image {
+            transform: scale(1.05);
+        }
+
+        /* Animación de entrada para los elementos principales */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="min-h-screen">
 
-    <!-- BARRA DE NAVEGACIÓN (HEADER) -->
-<header class="sticky top-0 z-50 bg-puerto-blue shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-             
-            <!-- Logo y Nombre -->
-<a href="#inicio" class="flex items-center space-x-2">
-                <!-- LOGO - Imagen 9 -->
-                <img src="WhatsApp Image 2025-11-17 at 17.39.20.jpeg-6cd28f97-b9ff-48e0-bd12-12350b9b5490"
-                     alt="Logo El Puerto de las Conchas Negras" 
-                     class="h-10 w-auto rounded-full shadow-lg" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A3D62/FDCB6E?text=LP';"
-                     crossorigin="anonymous" />
-                <span class="text-2xl font-black text-puerto-highlight hidden sm:block">EL PUERTO</span>
-            </a>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#platos" class="text-white hover:text-puerto-highlight transition duration-150">Nuestros Platos</a>
-                <a href="#menu-dia" class="text-white hover:text-puerto-highlight transition duration-150">Especialidad</a>
-                <a href="#local" class="text-white hover:text-puerto-highlight transition duration-150">Ubicación</a>
-                <a href="tel:+51953300260" class="text-white bg-puerto-red px-4 py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-150">
-                    <i class="fas fa-phone mr-1"></i> Llama Ahora
-                </a>
+    <!-- CABECERA / BARRA DE NAVEGACIÓN -->
+    <header class="header sticky top-0 z-50 p-4">
+        <div class="container mx-auto flex justify-between items-center max-w-7xl">
+            <!-- Logo de la Cevicheria -->
+            <div class="flex items-center space-x-2">
+                <!-- Se podría usar el logo que subiste aquí: WhatsApp Image 2025-11-17 at 17.39.20.jpeg -->
+                <i class="fa-solid fa-anchor text-white text-2xl"></i>
+                <h1 class="text-white text-2xl font-extrabold tracking-wider">EL PUERTO</h1>
+            </div>
+
+            <!-- Navegación Principal (Oculta en móviles, visible en md y superior) -->
+            <nav class="hidden md:flex space-x-6 font-medium">
+                <a href="#platos" class="hover:underline">Nuestros Platos</a>
+                <a href="#especialidad" class="hover:underline">Especialidad</a>
+                <a href="#ubicacion" class="hover:underline">Ubicación</a>
             </nav>
-            
-            <!-- Botón de llamar en móvil -->
-<a href="tel:+51953300260" class="md:hidden text-white bg-puerto-red p-2 rounded-full shadow-lg">
-                <i class="fas fa-phone text-xl"></i>
+
+            <!-- Botón de Contacto (Llamada a la Acción) -->
+            <a href="tel:+51987654321" class="btn-cta px-4 py-2 rounded-lg font-bold text-sm flex items-center space-x-2">
+                <i class="fa-solid fa-phone"></i>
+                <span>Llama Ahora</span>
             </a>
         </div>
     </header>
 
-    <!-- SECCIÓN HERO (PRINCIPAL) -->
-<section id="inicio" class="hero-sea-background text-white py-20 md:py-32 relative">
-        
-        <!-- Elementos animados de fondo -->
-<div id="sea-elements" class="absolute inset-0 z-0"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 logo-container">
-            
-            <!-- LOGO CENTRAL - Imagen 9 -->
-<img src="WhatsApp Image 2025-11-17 at 17.39.20.jpeg-6cd28f97-b9ff-48e0-bd12-12350b9b5490"
-                     alt="Logo El Puerto de las Conchas Negras" 
-                     class="h-32 w-auto mx-auto mb-4 rounded-full border-4 border-puerto-highlight shadow-xl" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/128x128/0A3D62/FDCB6E?text=LOGO';" 
-                     crossorigin="anonymous" />
+    <main class="container mx-auto max-w-7xl p-4 md:p-8">
 
-            <p class="text-xl font-light mb-3 text-puerto-highlight text-shadow-strong">Bienvenidos al auténico</p>
-            <h2 class="text-5xl md:text-7xl font-black mb-4 leading-tight text-shadow-strong">
-                EL PUERTO DE LAS CONCHAS NEGRAS
+        <!-- SECCIÓN DE BIENVENIDA / HERO -->
+        <section id="inicio" class="py-16 md:py-24 text-center animate-fadeIn">
+            <h2 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-4" style="color: var(--color-primary-dark);">
+                ¡El Verdadero Sabor del Mar Peruano en Lince!
             </h2>
-            <h3 class="text-2xl md:text-3xl font-semibold mb-10 text-white text-shadow-strong">
-                El Sabor Inigualable de Tumbes, Frescura Garantizada.
-            </h3>
-            <a href="#platos" class="inline-block bg-puerto-highlight text-puerto-blue font-bold text-xl px-10 py-4 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300">
-                Ver Galería de Platos
-            </a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE GALERÍA DE PLATOS -->
-<section id="platos" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center mb-12 text-puerto-blue border-b-4 border-puerto-highlight pb-2">
-                🐟 GALERÍA DE PLATOS 100% REALES 🦐
-            </h3>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                
-                <!-- Ronda Marina - Imagen 6 -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (3).jpeg-31294928-d7a6-493e-93ab-3c832efc7f45" 
-                         alt="Ronda Marina con Ceviche, Causa y Arroz" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Ceviche de Conchas Negras - Imagen 3 -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.21.jpeg-b0b2f071-36cd-4c00-ae43-b30f76a67799" 
-                         alt="Auténtico Ceviche de Conchas Negras" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Arroz con Mariscos - Imagen 1 -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg-33fdc0f8-e662-4dfe-9c06-8a4234e9c218" 
-                         alt="Arroz con Mariscos Decorado" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Causa de Camarón - Imagen 2 -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.23.jpeg-0790c166-0666-4115-8cfe-6c01ddde3e51" 
-                         alt="Causa de Camarón con Palta" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Jalea Mixta - Imagen 8 (Col span 2 en móvil, 1 en desktop) -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg-cd6ef2af-f6b0-46cd-bea0-9cc0c5d6317e" 
-                         alt="Crujiente Jalea Mixta" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Causa de Camarón - Imagen 4 (Col span 2 en móvil, 1 en desktop) -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card col-span-2 md:col-span-1">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.22.jpeg-79694137-2f64-47a2-b56a-d5e868491419" 
-                         alt="Causa de Camarón en bandeja" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                </div>
-                
-                <!-- Causa Especial Cumpleaños - Imagen 5 (Col span 2) -->
-<div class="aspect-square w-full overflow-hidden rounded-xl shadow-lg dish-card md:col-span-2 relative">
-                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (1).jpeg-f4cb0b86-2c15-4c00-8f6a-179bf3aa642a" 
-                         alt="Causa especial de cumpleaños" 
-                         class="object-cover w-full h-full"
-                         crossorigin="anonymous">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
-                        <p class="text-white text-xl font-bold text-center">¡Celebra con nosotros! <br> Pedidos especiales para tus eventos.</p>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center mt-8 text-gray-500 text-sm italic">
-                ¡La frescura del mar del norte directamente en tu mesa de Lince!
+            <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                Disfruta de la frescura de nuestras Conchas Negras y el arte de la cocina marina peruana, preparados con pasión.
             </p>
-        </div>
-    </section>
+            <a href="#platos" class="btn-cta px-8 py-4 rounded-full text-lg font-extrabold tracking-wide hover:opacity-90">
+                Ver Nuestro Menú <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </section>
 
-    <!-- SECCIÓN DE ESPECIALIDAD (LECHE DE TIGRE) -->
-<section id="menu-dia" class="py-16 md:py-24 bg-puerto-highlight border-t-8 border-puerto-red">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl md:text-5xl font-extrabold text-center mb-4 text-puerto-blue">
-                🏆 Nuestra Especialidad que te Revive 🏆
+        <!-- SECCIÓN DE GALERÍA DE PLATOS -->
+        <section id="platos" class="py-16 animate-fadeIn">
+            <h3 class="text-4xl font-extrabold text-center mb-12" style="color: var(--color-primary-dark);">
+                GALERÍA DE PLATOS 100% REALES <i class="fa-solid fa-shrimp" style="color: var(--color-accent-red);"></i><i class="fa-solid fa-bowl-food ml-2"></i>
             </h3>
-            <p class="text-center text-xl text-gray-700 mb-12">No te puedes ir sin probar el sabor auténtico de Tumbes:</p>
-
-            <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border-4 border-puerto-red flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/3 mb-4 lg:mb-0 lg:mr-6">
-                    <!-- Leche de Tigre Negra - Imagen 7 -->
-<img src="WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg-5a918ff5-2e39-4747-9c74-670062b5bdca" 
-                         alt="Leche de Tigre El Puerto" 
-                         class="rounded-xl object-cover w-full h-48 lg:h-full shadow-lg"
-                         crossorigin="anonymous">
-                </div>
-                <div class="lg:w-2/3">
-                    <h4 class="text-3xl font-black mb-3 text-puerto-blue">La Potente "Leche de Tigre Negra"</h4>
-                    <p class="text-lg text-gray-700 mb-4">
-                        Nuestro plato emblema: jugo concentrado del ceviche de conchas negras, puro sabor y energía. Acompañado de chifles y mariscos fritos. ¡Perfecto para revivir!
-                    </p>
-                    <div class="text-center lg:text-left">
-                        <span class="text-4xl font-black text-puerto-red block mb-4">¡Pregunta por el precio del día!</span>
-                        <a href="tel:+51953300260" class="inline-block bg-puerto-blue text-white font-bold text-lg px-8 py-3 rounded-lg hover:bg-blue-800 transition duration-300">
-                            <i class="fas fa-utensils mr-2"></i> Solicitar una Mesa
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
-<section id="local" class="py-16 md:py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center mb-16 text-puerto-blue">¡Visítanos en Lince!</h3>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-                
-                <!-- Tarjeta de Contacto y Redes -->
-<div id="contacto" class="p-8 rounded-3xl shadow-2xl bg-puerto-blue text-white flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-3xl font-bold mb-6 text-puerto-highlight">Contacto Directo</h4>
-                        
-                        <!-- Teléfono -->
-<div class="flex items-center mb-6">
-                            <i class="fas fa-phone-alt text-4xl text-puerto-red mr-4"></i>
-                            <div>
-                                <p class="text-sm opacity-80">Llámanos a nuestro celular:</p>
-                                <a href="tel:+51953300260" class="text-2xl font-black hover:text-puerto-highlight transition duration-150">
-                                    953 300 260
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Dirección -->
-<div class="flex items-start mb-8">
-                            <i class="fas fa-map-marked-alt text-4xl text-puerto-red mr-4 mt-1"></i>
-                            <div>
-                                <p class="text-sm opacity-80">Encuéntranos en:</p>
-                                <p class="text-xl font-bold">JR. Mariscal Miller N° 1905, Lince</p>
-                            </div>
-                        </div>
+            <!-- Grid Responsivo para los platos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        <!-- Horario -->
-<div class="flex items-start mb-8">
-                            <i class="far fa-clock text-4xl text-puerto-red mr-4 mt-1"></i>
-                            <div>
-                                <p class="text-sm opacity-80">Horario Sugerido de Atención:</p>
-                                <p class="text-xl font-bold">Lunes a Domingo | 11:00 AM - 5:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Redes Sociales -->
-<div class="mt-8 pt-6 border-t border-white/20">
-                        <p class="text-lg font-semibold mb-3 text-puerto-highlight">Síguenos y Etiquétanos:</p>
-                        <div class="flex space-x-6 justify-center lg:justify-start">
-                            
-                            <!-- Instagram -->
-<a href="https://www.instagram.com/puerto_de_las_conchas_negras" target="_blank" class="text-5xl hover:text-pink-400 transition duration-150">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            
-                            <!-- TikTok -->
-<a href="https://www.tiktok.com/@puertodelasconchasnegras" target="_blank" class="text-5xl hover:text-gray-200 transition duration-150">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            
-                            <!-- WhatsApp -->
-<a href="https://wa.me/51953300260" target="_blank" class="text-5xl hover:text-green-400 transition duration-150">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
+                <!-- PLATO 1: Ronda Marina -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.22.jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D63031/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Ronda Marina con Ceviche, Causa y Arroz" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Ronda Marina con Ceviche, Causa y Arroz</h4>
+                        <p class="text-gray-600 text-sm">El clásico trío perfecto para degustar lo mejor de nuestra carta.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
                     </div>
                 </div>
 
-                <!-- Mapa Clickeable -->
-<div class="p-0 rounded-3xl shadow-2xl overflow-hidden bg-gray-200">
-                    <h4 class="text-2xl font-bold text-center py-4 bg-puerto-red text-white">
-                        <i class="fas fa-location-arrow mr-2"></i> Haz Clic para Navegar
-                    </h4>
-                    
-                    <!-- Enlace al mapa de Google -->
-<a href="https://maps.google.com/?q=JR.%20Mariscal%20Miller%20N%C2%B0%201905,%20Lince" target="_blank" class="block w-full h-full min-h-80">
-                        <!-- Placeholder del mapa -->
-                        <img src="https://placehold.co/800x600/1e40bf/ffffff?text=MAPA%20de%20Ubicación%0AJR.%20Mariscal%20Miller%201905" 
-                             alt="Ubicación GPS Clickeable" 
-                             class="w-full h-full object-cover transform hover:scale-105 transition duration-500"
-                             crossorigin="anonymous">
-                    </a>
-                    <p class="text-center text-xs p-2 text-gray-600">
-                         (Nota: El enlace de navegación usa la dirección de texto. Revisa que Google Maps la identifique correctamente.)
+                <!-- PLATO 2: Auténtico Ceviche de Conchas Negras -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0A3D62/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Auténtico Ceviche de Conchas Negras" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Auténtico Ceviche de Conchas Negras</h4>
+                        <p class="text-gray-600 text-sm">Intenso, fresco y con el sabor inconfundible de Tumbes.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 3: Arroz con Mariscos Decorado -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D63031/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Arroz con Mariscos Decorado" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Arroz con Mariscos Decorado</h4>
+                        <p class="text-gray-600 text-sm">Nuestro arroz cremoso, lleno de sabor a mar y bellamente presentado.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 4: Causa de Camarón con Palta (Opción 1) -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.23.jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.23.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0A3D62/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Causa de Camarón con Palta" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Causa de Camarón con Palta (Opción 1)</h4>
+                        <p class="text-gray-600 text-sm">Fresco, cremoso y con la textura perfecta del camarón y el aguacate.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 5: Crujiente Jalea Mixta -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.21.jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.21.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D63031/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Crujiente Jalea Mixta" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Crujiente Jalea Mixta</h4>
+                        <p class="text-gray-600 text-sm">Pescados y mariscos fritos a la perfección, jugosos por dentro y crujientes por fuera.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 6: Causa de Camarón con Palta (Opción 2) -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.22 (3).jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (3).jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0A3D62/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Causa de Camarón con Palta (Opción 2)" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Causa de Camarón con Palta (Opción 2)</h4>
+                        <p class="text-gray-600 text-sm">Una entrada de presentación elegante y exquisito sabor.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 7: Ceviche de Conchas Negras con Yuca y Choclo -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D63031/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Ceviche de Conchas Negras con Yuca y Choclo" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Ceviche de Conchas Negras (Especial)</h4>
+                        <p class="text-gray-600 text-sm">Nuestro plato estrella, servido con acompañamientos norteños.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+
+                <!-- PLATO 8: Causa de Cumpleaños (Extra) -->
+                <div class="dish-card rounded-xl">
+                    <!-- RUTA CORREGIDA: Buscando directamente el archivo WhatsApp Image 2025-11-17 at 17.39.22 (1).jpeg -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.22 (1).jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0A3D62/FFFFFF?text=FOTO+NO+ENCONTRADA';" alt="Causa de Cumpleaños (Extra)" class="dish-image">
+                    <div class="p-4">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">Causa Especial de Cumpleaños</h4>
+                        <p class="text-gray-600 text-sm">¡Celebra con nosotros! Una causa decorada para la ocasión.</p>
+                        <a href="#" class="text-xs text-blue-600 hover:text-blue-800 font-medium mt-2 block">Ver detalles</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE ESPECIALIDAD Y PROMOCIÓN -->
+        <section id="especialidad" class="mt-16 py-16 bg-white rounded-2xl shadow-xl animate-fadeIn">
+            <div class="flex flex-col lg:flex-row items-center justify-between p-8">
+                <div class="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
+                    <h3 class="text-4xl font-extrabold mb-4" style="color: var(--color-accent-red);">
+                        Nuestra Especialidad: Ceviche de Conchas Negras
+                    </h3>
+                    <p class="text-gray-700 text-lg mb-6">
+                        Traído directamente de las costas de Tumbes, nuestro ceviche de conchas negras es una explosión de sabor inigualable. Preparado al instante con un toque secreto de la casa. ¡El verdadero sabor del norte en Lince!
                     </p>
+                    <a href="tel:+51987654321" class="btn-cta px-6 py-3 rounded-full font-bold inline-flex items-center space-x-2">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>¡Pruébalo Hoy!</span>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 h-80 rounded-xl overflow-hidden shadow-2xl">
+                    <!-- Usaremos el Arroz con Mariscos (Plato 3) como foto de especialidad -->
+                    <img src="WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg" alt="Especialidad de la Casa" class="w-full h-full object-cover">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER (Pie de página) -->
-<footer class="bg-puerto-blue text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-sm">&copy; 2025 EL PUERTO DE LAS CONCHAS NEGRAS. Hecho con Sazón.</p>
+        <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
+        <section id="ubicacion" class="py-16 animate-fadeIn">
+            <h3 class="text-4xl font-extrabold text-center mb-12" style="color: var(--color-primary-dark);">
+                ¡Visítanos! Estamos en el Corazón de Lince
+            </h3>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Información de Contacto -->
+                <div>
+                    <h4 class="text-2xl font-bold mb-4" style="color: var(--color-primary-dark);">Datos de Contacto</h4>
+                    <p class="mb-2"><i class="fa-solid fa-map-marker-alt mr-2" style="color: var(--color-accent-red);"></i> Av. Arequipa 1234, Lince, Lima</p>
+                    <p class="mb-2"><i class="fa-solid fa-clock mr-2" style="color: var(--color-accent-red);"></i> Lunes a Sábado: 11:00 AM - 9:00 PM</p>
+                    <p class="mb-2"><i class="fa-solid fa-phone mr-2" style="color: var(--color-accent-red);"></i> Teléfono: <a href="tel:+51987654321" class="text-blue-600 hover:underline">+51 987 654 321</a></p>
+                    <p class="mb-2"><i class="fa-solid fa-envelope mr-2" style="color: var(--color-accent-red);"></i> Email: <a href="mailto:contacto@puertoconchasnegras.com" class="text-blue-600 hover:underline">contacto@puertoconchasnegras.com</a></p>
+
+                    <h4 class="text-2xl font-bold mt-8 mb-4" style="color: var(--color-primary-dark);">Redes Sociales</h4>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="https://facebook.com/ElPuertoDeLasConchasNegras" target="_blank" class="text-blue-600 hover:text-blue-800 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://instagram.com/ElPuertoDeLasConchasNegras" target="_blank" class="text-pink-600 hover:text-pink-800 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@ElPuertoDeLasConchasNegras" target="_blank" class="text-gray-900 hover:text-gray-700 transition"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mapa (Iframe de Google Maps) -->
+                <div class="h-80 rounded-xl overflow-hidden shadow-xl">
+                    <!-- Puedes reemplazar este iframe con el de tu ubicación real -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.373468087595!2d-77.0402941851878!3d-12.08865679145265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c879d7494d4d%3A0x8e8b8b8b8b8b8b8b!2sAv.%20Arequipa%201234%2C%20Lince%2015046!5e0!3m2!1ses-419!2spe!4v1636916400000!5m2!1ses-419!2spe" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-gray-800 text-white p-6 mt-12">
+        <div class="container mx-auto max-w-7xl text-center text-sm">
+            <p>&copy; 2025 EL PUERTO DE LAS CONCHAS NEGRAS. Todos los derechos reservados.</p>
+            <p class="mt-1">Diseñado con <i class="fa-solid fa-heart text-red-500 mx-1"></i> y sabor a mar.</p>
         </div>
     </footer>
-    
-    <!-- JavaScript para la animación de fondo -->
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const seaElementsContainer = document.getElementById('sea-elements');
-            const numElements = 20; 
 
-            // Función para generar una posición aleatoria
-            function getRandomPosition(isFish = false) {
-                const x = isFish ? window.innerWidth : Math.random() * window.innerWidth;
-                const y = Math.random() * (window.innerHeight * 0.8) + window.innerHeight * 0.2; 
-                return { x, y };
-            }
-
-            // Array de emojis de animales marinos
-            const fishEmojis = ['🐠', '🐡', '🐙', '🦐', '🦀', '🦑', '🐋'];
-
-            for (let i = 0; i < numElements; i++) {
-                if (Math.random() > 0.6) { // 40% de probabilidad de ser un pez
-                    const fish = document.createElement('div');
-                    fish.classList.add('fish-icon');
-                    fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
-                    
-                    const { x, y } = getRandomPosition(true);
-                    
-                    fish.style.left = `${x}px`;
-                    fish.style.top = `${y}px`;
-                    
-                    fish.style.animationDuration = `${10 + Math.random() * 10}s`;
-                    fish.style.animationDelay = `-${Math.random() * 15}s`; 
-                    
-                    seaElementsContainer.appendChild(fish);
-                } else { // 60% de probabilidad de ser una burbuja
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble');
-                    
-                    const { x } = getRandomPosition(false);
-                    
-                    bubble.style.left = `${x}px`;
-                    bubble.style.width = `${5 + Math.random() * 15}px`;
-                    bubble.style.height = bubble.style.width;
-
-                    bubble.style.animationDuration = `${8 + Math.random() * 8}s`;
-                    bubble.style.animationDelay = `-${Math.random() * 10}s`;
-                    
-                    seaElementsContainer.appendChild(bubble);
+    <!-- Script para un suave desplazamiento a las secciones -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Solo si el href no es '#', porque algunos '#' se usan como enlaces temporales
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
-            }
+            });
         });
     </script>
+
 </body>
 </html>
