@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
             background-color: var(--color-white); /* Fondo principal blanco */
         }
 
-        /* Estilos del header fijo para que coincida con el diseño de referencia */
+        /* Estilos del header fijo */
         .header-style {
             background-color: var(--color-white);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -33,8 +33,7 @@
 
         /* Estilos del Hero Section (Bienvenida) - Fondo de mar y logo circular */
         #hero-section {
-            /* Manteniendo el placeholder con el estilo de fondo de mar */
-            /* Usando una de las imágenes subidas como fondo principal del Hero */
+            /* Fondo de mar como placeholder */
             background-image: url('WhatsApp Image 2025-11-17 at 17.39.22.jpeg'); 
             background-size: cover;
             background-position: center;
@@ -49,32 +48,41 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Sombra más oscura para destacar texto blanco */
+            /* Opacidad para asegurar que el texto se vea */
+            background: rgba(0, 0, 0, 0.65); 
         }
 
-        /* Contenedor circular del logo con la imagen proporcionada por el usuario */
-        .logo-circular-container {
-            width: 200px;
-            height: 200px;
+        /* Contenedor de la Imagen del Camarón/Logo */
+        .logo-camaron-container {
+            width: 200px; /* Tamaño fijo */
+            height: 200px; /* Tamaño fijo */
+            padding: 10px; /* Espacio para el borde/sombra */
+            background-color: white; /* Fondo blanco para el logo */
             border-radius: 50%;
             border: 6px solid var(--color-accent);
             box-shadow: 0 0 20px rgba(255, 195, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 10;
-            overflow: hidden; /* Asegura que la imagen sea circular */
+            overflow: hidden; 
         }
         
-        .logo-circular-container img {
+        .logo-camaron-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%; /* Para que la imagen dentro sea circular */
         }
 
         /* Título y eslogan */
         .hero-title {
             font-family: 'Playfair Display', serif;
             text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Estilo para el eslogan: Aseguramos visibilidad */
+        .hero-slogan {
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 1.0); /* Sombra de texto más fuerte */
         }
 
         /* Estilo para los botones principales CTA */
@@ -171,11 +179,11 @@
     <section id="hero-section" class="text-center">
         <div class="relative z-10 p-6 md:p-12 max-w-4xl mx-auto flex flex-col items-center justify-center h-full">
             
-            <!-- Contenedor Circular del Logo (Usando WhatsApp Image 2025-11-18 at 23.21.38.jpeg) -->
-            <!-- Si esta imagen es el logo, mantenemos este nombre, sino, cámbialo por el nombre de tu logo. -->
-            <div class="logo-circular-container mx-auto">
+            <!-- Contenedor Circular del Logo/Camarón Destacado -->
+            <div class="logo-camaron-container mx-auto">
+                <!-- Imagen del Camarón/Logo -->
                 <img src="WhatsApp Image 2025-11-18 at 23.21.38.jpeg" 
-                     alt="Logo Principal: El Puerto de las Conchas Negras - Cevichería">
+                     alt="Logo Cevichería: Camarón y referencias marinas">
             </div>
             
             <h1 class="hero-title text-5xl md:text-7xl font-extrabold text-white mt-4 mb-4">
@@ -183,8 +191,7 @@
             </h1>
             
             <!-- ES LOGAN EN LA PÁGINA WEB -->
-            <h2 class="text-xl md:text-2xl font-semibold text-white max-w-3xl mx-auto px-4 mb-8" 
-                style="text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
+            <h2 class="hero-slogan text-xl md:text-3xl font-extrabold text-white max-w-3xl mx-auto px-4 mb-8">
                 ¡El Verdadero Sabor Norteño en Lima! <strong style="color: var(--color-accent);">Frescura, Tradición y Pasión</strong> en cada plato.
             </h2>
 
@@ -205,7 +212,7 @@
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Plato 1: Ronda Marina (Usando WhatsApp Image 2025-11-17 at 17.39.23.jpeg) -->
+            <!-- Plato 1: Ronda Marina -->
             <div class="gallery-card bg-white p-4">
                 <img src="WhatsApp Image 2025-11-17 at 17.39.23.jpeg" 
                      alt="Ronda Marina con Ceviche, Causa y Arroz" class="w-full h-48 object-cover rounded-t-lg mb-4">
@@ -214,7 +221,7 @@
                 <span class="text-lg font-bold block mt-3" style="color: var(--color-accent);">S/ 45.00</span>
             </div>
             
-            <!-- Plato 2: Conchas Negras (Usando WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg) -->
+            <!-- Plato 2: Conchas Negras -->
             <div class="gallery-card bg-white p-4">
                 <img src="WhatsApp Image 2025-11-17 at 17.39.21 (1).jpeg" 
                      alt="Auténtico Ceviche de Conchas Negras" class="w-full h-48 object-cover rounded-t-lg mb-4">
@@ -223,7 +230,7 @@
                 <span class="text-lg font-bold block mt-3" style="color: var(--color-accent);">S/ 45.00</span>
             </div>
 
-            <!-- Plato 3: Arroz con Mariscos (Usando WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg) -->
+            <!-- Plato 3: Arroz con Mariscos -->
             <div class="gallery-card bg-white p-4">
                 <img src="WhatsApp Image 2025-11-17 at 17.39.23 (1).jpeg" 
                      alt="Arroz con Mariscos Decorado" class="w-full h-48 object-cover rounded-t-lg mb-4">
@@ -232,7 +239,7 @@
                 <span class="text-lg font-bold block mt-3" style="color: var(--color-accent);">S/ 38.00</span>
             </div>
 
-            <!-- Plato 4: Jalea Mixta (Usando WhatsApp Image 2025-11-17 at 17.39.21.jpeg) -->
+            <!-- Plato 4: Jalea Mixta -->
             <div class="gallery-card bg-white p-4">
                 <img src="WhatsApp Image 2025-11-17 at 17.39.21.jpeg" 
                      alt="Crujiente Jalea Mixta" class="w-full h-48 object-cover rounded-t-lg mb-4">
@@ -269,7 +276,7 @@
                 </a>
             </div>
             
-            <!-- Columna de Imagen de Especialidad (Usando WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg) -->
+            <!-- Columna de Imagen de Especialidad -->
             <div class="relative rounded-xl overflow-hidden shadow-2xl">
                  <img src="WhatsApp Image 2025-11-17 at 17.39.22 (2).jpeg" 
                      alt="Plato de Conchas Negras (Especialidad)" class="w-full h-96 object-cover transform hover:scale-105 transition duration-500">
